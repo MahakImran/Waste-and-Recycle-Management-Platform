@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+            body {
+            font-family: Arial, sans-serif;
+            background-color: #424b5a;
+            color: #424b5a;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h4 {
+            margin-top: 0%;
+            padding-left: 30%;
+            text-align: center;
+            font-size: 40px;
+            color: #424b5a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        img {
+            
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+        }
+
+        .card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-group {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .list-group a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            border: none;
+            background: #f9f9f9;
+            color: #555;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .list-group a:hover, .list-group a.active {
+            background: #77AA42;
+            color: #fff;
+        }
+
+        .tab-content {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            border-color: #77AA42;
+            outline: none;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-primary {
+            background: #77AA42;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #77AA42;
+        }
+
+        .btn-default {
+            background: #f9f9f9;
+            color: #555;
+        }
+
+        .btn-default:hover {
+            background: #e0e0e0;
+        }
+
+        .pickup-item {
+            background: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .pickup-item p {
+            margin: 5px 0;
+        }
+
+        .logout-button {
+            margin-top: 10px;
+        }
+
+        
+        .row {
+            display: flex;
+        }
+
+        .col-md-3 {
+            flex: 0 0 25%;
+        }
+
+        .col-md-9 {
+            flex: 0 0 75%;
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+
+            .col-md-3 {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="white_logo.png" alt="Logo">
+        <h4 class="font-weight-bold py-3 mb-4">
+            Account settings
+        </h4>
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <ul class="list-group">
+                        <a href="#account-general" class="list-group-item active" data-toggle="list">General</a>
+                        <a href="#account-change-password" class="list-group-item" data-toggle="list">Change Password</a>
+                        <a href="#logout" class="list-group-item" data-toggle="list">Log Out</a>
+                        <a href="#pickup-history" class="list-group-item" data-toggle="list">Pickup History</a>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="account-general">
+                            <div class="tab-content">
+                                <div class="form-group">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control" value="Abc">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Contact No.</label>
+                                    <input type="tel" class="form-control" value="+92">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">E-mail</label>
+                                    <input type="text" class="form-control" value="abc@mail.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="account-change-password">
+                            <div class="form-group">
+                                <label class="form-label">Current Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Repeat New Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="logout">
+                            <h3>Logout</h3>
+                            <button class="btn btn-primary logout-button" onclick="logout()">Logout</button>
+                        </div>
+
+                        <div class="tab-pane fade" id="pickup-history">
+                            <h3>Previous Pickups</h3>
+                            <div class="pickup-history" id="pickupHistory">
+                                <!-- Populated dynamically with JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-right">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        const pickups = [
+            { date: "2024-12-01", materials: "Plastic, Glass", location: "123 Main Street, City", status: "Completed" },
+            { date: "2024-12-05", materials: "Paper, Metal", location: "456 Abc Street, City", status: "Pending" },
+            { date: "2024-12-10", materials: "Electronics", location: "789 Xyz Street, City", status: "Completed" }
+        ];
+
+        const populatePickups = () => {
+            const pickupHistory = document.getElementById("pickupHistory");
+            pickups.forEach(pickup => {
+                const pickupItem = document.createElement("div");
+                pickupItem.classList.add("pickup-item");
+                pickupItem.innerHTML = `
+                    <p><strong>Date:</strong> ${pickup.date}</p>
+                    <p><strong>Materials:</strong> ${pickup.materials}</p>
+                    <p><strong>Location:</strong> ${pickup.location}</p>
+                    <p><strong>Status:</strong> ${pickup.status}</p>
+                `;
+                pickupHistory.appendChild(pickupItem);
+            });
+        };
+
+        const logout = () => alert("You have been logged out.");
+
+        document.addEventListener("DOMContentLoaded", populatePickups);
+    </script>
+</body>
+
+</html>

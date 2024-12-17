@@ -1,0 +1,181 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Centers Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .logo-text-inline {
+           padding-top: 3%;
+           padding-bottom: 0%;
+           color: #77AA42;
+        }
+        .near {
+            color: #424b5a;
+        }
+        .search-bar {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .search-bar input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #77AA42;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .map-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        #map {
+            width: 70%;
+            height: 500px;
+        }
+        .list {
+            width: 25%;
+            overflow-y: auto;
+            height: 500px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .list-item {
+            margin-bottom: 15px;
+            color: #424b5a;
+        }
+        .list-item h3 {
+            margin: 0 0 5px 0;
+            color: #77AA42;
+        }
+        .list-item p {
+            margin: 5px 0;
+            font-size: 14px;
+            padding: 1%;
+        }
+        .list-item a {
+            color: #004aad;
+            text-decoration: none;
+        }
+        .list-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-text-inline">
+        <img src="white_logo.png" alt="Logo" style="vertical-align: middle; width: 120px;">
+        <h1 style="display: inline; margin: 0; padding-left: 20%; text-align: center;">Locate Recycling Centers <span class="near">Near you!</span></h1>
+    </div>
+      
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="locationInput" placeholder="Enter city or zip code">
+        <button onclick="searchLocation()">Search</button>
+    </div>
+
+    <!-- Map and List Container -->
+    <div class="map-container">
+        <!-- Google Map -->
+        <div id="map"></div>
+
+        <!-- List of Recycling Centers -->
+        <div class="list" id="recyclingCentersList">
+            <!-- Dynamic content will go here -->
+        </div>
+    </div>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="centers.js"></script>
+
+    <script>
+        // Sample data for recycling centers
+        const centers = [
+            {
+                name: "Recycling Center A",
+                address: "123 Main St, City, State, Zip",
+                materials: "Plastic, Paper, Glass",
+                contact: "123-456-7890",
+                email: "example@recyclingcenter.com",
+                website: "http://www.recyclingcenter.com",
+                lat: 40.7128,
+                lng: -74.0060
+            },
+            {
+                name: "Recycling Center B",
+                address: "456 Another St, Another City, State, Zip",
+                materials: "Metals, Electronics",
+                contact: "987-654-3210",
+                email: "info@anothercenter.com",
+                website: "http://www.anothercenter.com",
+                lat: 34.0522,
+                lng: -118.2437
+            }
+            // Add more centers as needed
+        ];
+
+        // Function to initialize the map
+        function initMap() {
+            const center = { lat: 40.7128, lng: -74.0060 }; // Default location (can be updated)
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: center
+            });
+
+            // Loop through the centers and add pins
+            centers.forEach(centerData => {
+                const marker = new google.maps.Marker({
+                    position: { lat: centerData.lat, lng: centerData.lng },
+                    map: map,
+                    title: centerData.name
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<h3>${centerData.name}</h3><p>${centerData.address}</p><p>Materials: ${centerData.materials}</p>`
+                });
+
+                marker.addListener('click', () => {
+                    infoWindow.open(map, marker);
+                });
+            });
+
+            // Display the list of centers
+            const listContainer = document.getElementById('recyclingCentersList');
+            centers.forEach(centerData => {
+                const listItem = document.createElement('div');
+                listItem.classList.add('list-item');
+
+                listItem.innerHTML = `
+                    <h3>${centerData.name}</h3>
+                    <p><strong>Address:</strong> ${centerData.address}</p>
+                    <p><strong>Materials Accepted:</strong> ${centerData.materials}</p>
+                    <p><strong>Contact No.:</strong> ${centerData.contact}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${centerData.email}">${centerData.email}</a></p>
+                    <p><strong>Website:</strong> <a href="${centerData.website}" target="_blank">${centerData.website}</a></p>
+                `;
+
+                listContainer.appendChild(listItem);
+            });
+        }
+
+        // Dummy search function (you can implement actual search logic here)
+        function searchLocation() {
+            const location = document.getElementById('locationInput').value;
+            alert("Search function not implemented. Searching for: " + location);
+        }
+    </script>
+</body>
+</html>
