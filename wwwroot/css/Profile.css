@@ -1,0 +1,156 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #424b5a;
+    color: #424b5a;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+    margin-top: 0%;
+    padding-left: 30%;
+    text-align: center;
+    font-size: 40px;
+    color: #424b5a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-group {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .list-group a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        border: none;
+        background: #f9f9f9;
+        color: #555;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .list-group a:hover, .list-group a.active {
+            background: #77AA42;
+            color: #fff;
+        }
+
+.tab-content {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+    .form-control:focus {
+        border-color: #77AA42;
+        outline: none;
+        box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+    }
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background: #77AA42;
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background: #77AA42;
+    }
+
+.btn-default {
+    background: #f9f9f9;
+    color: #555;
+}
+
+    .btn-default:hover {
+        background: #e0e0e0;
+    }
+
+.pickup-item {
+    background: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+    .pickup-item p {
+        margin: 5px 0;
+    }
+
+.logout-button {
+    margin-top: 10px;
+}
+
+.row {
+    display: flex;
+}
+
+.col-md-3 {
+    flex: 0 0 25%;
+}
+
+.col-md-9 {
+    flex: 0 0 75%;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-3 {
+        margin-bottom: 20px;
+    }
+}

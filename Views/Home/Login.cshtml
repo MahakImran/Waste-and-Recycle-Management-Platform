@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-container">
+            <div class="card" id="card">
+                <div class="card-front"></div>
+                <div class="card-back"></div>
+            </div>
+        </div>
+        <div id="form">
+            <h1>
+                <span class="welcome">WELCOME</span>
+                <span class="back">BACK!</span>
+            </h1>
+            <div class="form-container">
+                <form class="form-info">
+                    <div class="form-row">
+                        <label for="name">Username: </label>
+                        <input type="text" id="name" placeholder="Enter your username">
+                    </div>
+                    <div class="form-row">
+                        <label for="password">Password: </label>
+                        <input type="password" id="cnic" placeholder="Enter your password">
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-login">Log in</button>
+                        <button type="button" class="btn btn-clear" onclick="document.querySelector('.form-info').reset();">Clear</button>
+                    </div>
+                    <div class="Signin-section">
+                        <span class="signin-text">Don't have an account?</span>
+                        <button type="button" class="btn btn-signin" onclick="window.location.href='WM.html#user-reg';">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/login.js"></script>
+</body>
+</html>

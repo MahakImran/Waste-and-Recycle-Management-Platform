@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste and Recycle Management Platform</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <script src="https://kit.fontawesome.com/6cb1fbf631.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+          <nav>
+            <img src="~/images/white_logo.png" alt="Logo" class="logo">
+            <ul id="sidebar">
+             <li><a href="#header" target="_blank">Home</a></li>
+             <li><a href="#about-us" target="_blank">About Us</a></li>
+             <li><a href="#rec-center" target="_blank">Recycling Centers</a></li>
+             <li><a href="#edu-res" target="_blank">Educational Resources</a></li>
+             <li><a href="#Schedule-Pickup" target="_blank">Schedule Pickup</a></li>
+             <li><a href="#user-reg" target="_blank">Register</a></li>
+             <li><a href="@Url.Action("Profile","Home")"target="_blank">Profile</a></li>
+            </ul>
+          </nav>
+          <div id="header-text">
+             <h1>Connecting You to a Cleaner, Greener Future.</h1>
+             <p class="statement">Find local recycling centers, schedule waste pickups, <br> and access tips on sustainable living—all in one place.</p>
+             <p class="motivation">Your efforts help reduce landfill waste, conserve resources, and protect our planet’s future. EcoConnect made it so easy to recycle without any hassle.<span> Ready to make a difference?</span> Register now and start your recycling journey! </p>
+             <button id="get-started" onclick="window.location.href='#user-reg';">Get Started <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+    </div>
+    <!------------------------------------About Us-------------------------------->
+    <div id="about-us">
+      <img src="~/images/white_logo.png" alt="Logo" class="logo2">
+      <h1>Building a Sustainable Future, One Step at a Time</h1>
+      <p class="intro">At <span>EcoConnect</span>, we are passionate about creating a cleaner, greener world. Our platform makes recycling simple and accessible for everyone by connecting people to local recycling centers, providing waste management solutions, and offering resources for sustainable living. Our Mission is to empower individuals and communities to make environmentally conscious choices. By simplifying waste management and promoting recycling, we aim to reduce landfill waste and protect our planet for future generations.We envision a world where sustainability is second nature, where every household and business actively participates in reducing waste, recycling responsibly, and upcycling creatively. <br> Together, we can achieve a cleaner and healthier environment. </p>
+      <div id="features">
+        <div class="feature-item">
+            <img src="~/images/locate.png" alt="icon description" class="icon">
+            <div class="layer">
+            <h3>Recycling Made Easy</h3>
+            <p>Locate nearby recycling centers with  our user-friendly tools.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="~/images/schedulepickup.png" alt="icon description" class="icon">
+           <div class="layer">
+            <h3>Convenient Pickup Services</h3>
+            <p>Schedule pickups for your recyclable materials with just a few clicks. </p>
+           </div>
+        </div>
+        <div class="feature-item">
+            <img src="~/images/guide.png" alt="icon description" class="icon">
+            <div class="layer">
+            <h3>Educational Resources</h3>
+            <p>Access guides, tips, and articles to learn how you can live more sustainably.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="~/images/community.png" alt="icon description" class="icon">
+           <div class="layer">
+            <h3>Community Impact</h3>
+            <p>Join a growing community dedicated to reducing waste and preserving the planet.</p>
+           </div>
+        </div>
+    </div>
+<!-------------------RECYCLING CENTERS--------------------->
+<div id="rec-center">
+<div class="logo-text-inline">
+    <img src="~/images/white_logo.png" alt="Logo" class="logo">
+    <h1 class="page-title">Locate Recycling Centers <span class="near" style="color: #424b5a;">Near you!</span></h1>
+</div>
+
+<!-- Search Bar -->
+<div class="search-bar">
+    <input type="text" id="locationInput" placeholder="Enter city or zip code">
+    <button onclick="searchLocation()">Search</button>
+</div>
+
+<!-- Map and List Container -->
+<div class="map-container">
+    <!-- Google Map -->
+    <div id="map"></div>
+
+    <!-- List of Recycling Centers -->
+    <div class="list" id="recyclingCentersList">
+        <!-- Dynamic content will go here -->
+    </div>
+</div>
+</div>
+<!--------------------------------EDUCATIONAL RESOURCES----------------------------->
+<div id="edu-res">
+    <nav>
+        <img src="~/images/white_logo.png" alt="Logo" class="logo">
+    </nav>
+    <div class="container">
+        <h1 class="sub-title">Educational Resources</h1>
+        <div class="issue-list">
+            <div class="issue">
+                <img src="~/images/recycle and nonrecycle2.png" alt="" srcset="">
+                <div class="layer2">
+                    <h3>What can & can't be Recycled</h3>
+                    <p>Not everything that looks recyclable actually is. Learn what materials can be recycled and which ones should be disposed of differently to help improve the recycling process.</p>
+                   <a href="@Url.Action("Issue","Home")"target="_blank">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="issue">
+                <img src="~/images/plastic free living (1).jpg" alt="" srcset="">
+                <div class="layer2">
+                    <h3>Tips for Reducing Plastic Waste</h3>
+                    <p>Plastic waste is a major environmental concern. Discover simple, everyday actions that can help you reduce your plastic footprint and contribute to a cleaner planet.</p>
+                    <a href="@Url.Action("Issue2","Home")"target="_blank">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="issue">
+                <img src="~/images/plastic bottle.JPG" alt="" srcset="">
+                <div class="layer2">
+                    <h3>Lifecycle of a Plastic Bottle</h3>
+                    <p>Have you ever wondered what happens to a plastic bottle once it’s tossed away? Explore the entire life cycle of a plastic bottle and its impact on the environment.</p>
+                    <a href="@Url.Action("Issue3","Home")"target="_blank">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="issue hidden">
+                <img src="~/images/climate change.png" alt="" srcset="">
+                <div class="layer2">
+                    <h3>How recycling Helps Fight Climate Change</h3>
+                    <p>Recycling isn’t just good for waste management—it’s also a powerful tool in the fight against climate change. Learn how recycling can help lower carbon emissions.</p>
+                    <a href="@Url.Action("Issue4","Home")"target="_blank">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="issue hidden">
+                <img src="~/images/improper disposal.JPG" alt="" srcset="">
+                <div class="layer2">
+                    <h3>Overconsumption and Improper Disposal of Goods</h3>
+                    <p>Overconsumption and the improper disposal of goods are major contributors to pollution. Discover how they affect the environment and what you can do to minimize their impact.</p>
+                    <a href="@Url.Action("Issue5","Home")"target="_blank">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="issue hidden">
+                <img src="~/images/recycling sort.png" alt="" srcset="">
+                <div class="layer2">
+                    <h3>Improper Sorting of Recycling Materials</h3>
+                    <p>Improper sorting can cause entire batches of recyclables to be sent to landfills. Discover the common mistakes and how to avoid them.</p>
+                    <a href="@Url.Action("Issue6","Home")"target="_blank">Read More<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <button id="seeMoreBtn">See More</button>
+    
+</div> 
+</div>
+<!---------------------------------------Schedule Pickups--------------------------------------->
+<div id="Schedule-Pickup">
+    <img src="~/images/white_logo.png" alt="Logo" class="logo3">
+    <h1 style="font-size: 2em;">SCHEDULE PICKUP</h1>
+    <div id="schedule">
+        <div class="container">
+            <div class="row">
+                <div class="schedule-right">
+                    <form name="" class="btn2">
+                        <p>Name:</p>
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <p>Address:</p>
+                        <input type="text" name="Address" placeholder="Your Address" required>
+                        <p>Email:</p>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <p>Contact no.:</p>
+                        <input type="tel" name="Phone" placeholder="Your Phone number" required>
+                        <p>Preferred Pickup Date and Time:</p>
+                        <input type="datetime-local" name="Pickup-date" placeholder="Preferred Pickup Date and Time" required>
+                        
+                        <p>Types of waste</p>
+                        <select id="waste_type" name="waste_type" required>
+                            <option value="plastic">Plastic</option>
+                            <option value="paper">Paper</option>
+                            <option value="metal">Paper</option>
+                            <option value="electronic">Electronic</option>
+                            <option value="glass">Glass</option>
+                        </select>
+                        
+                        <textarea name="Message" rows="6" placeholder="Instructions"></textarea>
+                        <button type="submit" id="seeMoreBtn">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+                </div>
+            </div>
+        </div>
+       
+   
+<!----------------------------------------USER REGISTRATION------------------------------------------->
+<div id="user-reg">
+<div class="container2">
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="card-front"></div>
+            <div class="card-back"></div>
+        </div>
+    </div>
+    <div id="regform">
+        <h1>
+            <span class="register">REGISTER</span>
+            <span class="now" style="color: #424b5a;">NOW!</span>
+        </h1>
+        <div class="form-container">
+            <form class="form-info">
+                <div class="form-row">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-row">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <div class="form-row">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-signup">Sign Up</button>
+                    <button type="button" class="btn btn-clear" onclick="document.querySelector('.form-info').reset();">Clear</button>
+                </div>
+                <div class="login-section">
+                    <span class="login-text" style="color: #888;">Already have an account?</span>
+                    <button type="button" class="btn btn-login" onclick="window.location.href='login.html';">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<!------------------------------------- Google Maps API ------------------------------------>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script src="~/js/site.js"></script>
+</body>
+</html>
