@@ -1,0 +1,27 @@
+﻿<p style="color:brown">@ViewBag.Message</p>
+<h1>Contact Form</h1>
+@using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" placeholder="enter your name" />
+    <br />
+    <br />
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" placeholder="enter your email address" />
+    <br />
+    <br />
+    <label for="phone">Phone number:</label>
+    <input type="tel" name="phone" id="phone" placeholder="enter your ph#" />
+    <br />
+    <br />
+    <label for="query">Query:</label>
+    <textarea name="query" id="query" placeholder="enter your query"></textarea>
+    <br />
+    <br />
+    <br />
+    <button>Submit Form</button>
+}
+
+
+
