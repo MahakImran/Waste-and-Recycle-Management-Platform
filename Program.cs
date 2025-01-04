@@ -1,7 +1,14 @@
+using Contact_form.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var connectionstring=builder.Configuration.GetConnectionString("DbConnection");
+builder.Services.AddDbContext<ContactDbcontext>(options=> options.UseSqlServer(connectionstring));
 
 var app = builder.Build();
 

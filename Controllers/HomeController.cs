@@ -1,3 +1,4 @@
+using Contact_form.Data;
 using Contact_form.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,9 +9,12 @@ namespace Contact_form.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ContactDbcontext _contactDbcontext;
+
+        public HomeController(ILogger<HomeController> logger, ContactDbcontext contactDbcontext)
         {
             _logger = logger;
+            _contactDbcontext = contactDbcontext;
         }
 
         public IActionResult Index()
@@ -19,14 +23,16 @@ namespace Contact_form.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Contact(string name, string email, string phone, string query)
+        public IActionResult Contact(Contact contact)
         {
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(query))
+            if (string.IsNullOrEmpty(contact.name) || string.IsNullOrEmpty(contact.Email) || string.IsNullOrEmpty(contact.Phone) || string.IsNullOrEmpty(contact.query))
             {
                 ViewBag.Message = "Form not Submitted! Please fill in all fields.";
             }
             else
             {
+                _contactDbcontext.Add(contact);
+                _contactDbcontext.SaveChanges();
                 ViewBag.Message = "Form Submitted";
             }
             return View("Index");
