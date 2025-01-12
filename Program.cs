@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Waste_and_Recycle_Managemnet_Platform.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var connectionstring = builder.Configuration.GetConnectionString("dbConnection");
+builder.Services.AddDbContext<SchedulepickupDbContext>(options => options.UseSqlServer(connectionstring));
+builder.Services.AddDbContext<RegistrationDbContext>(options => options.UseSqlServer(connectionstring));
 
 var app = builder.Build();
 

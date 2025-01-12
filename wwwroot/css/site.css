@@ -6,7 +6,16 @@
 }
 
 body {
+   padding: 0;
+   margin: 0 !important;
     color: #77AA42;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 !important;
+    width: 100%;
+    max-width: 1920px;
 }
 
 html {
@@ -14,16 +23,17 @@ html {
 }
 
 #header {
+    margin-right: 0;
+    margin-left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100vh !important;
     background-image: url('../images/background_home.png');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
-.container {
-    padding: 10px 10%;
-}
+
 
 nav {
     display: flex;
@@ -110,7 +120,7 @@ nav ul li {
 /*----------About Us-------------------*/
 #about-us {
     width: 100%;
-    height: 100vh;
+    height: 100vh !important;
     background-image: url('../images/bg2.png');
     background-size: cover;
 }
@@ -244,6 +254,7 @@ nav ul li {
     opacity: 1;
 }
 /*---------------------------------RECYCLING CENTRES---------------------------------------*/
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -271,59 +282,29 @@ body {
 }
 
 .near {
-    color: #424b5a;
-}
-
-.search-bar {
-    text-align: center;
-    margin: 10px 0;
-}
-
-    .search-bar input {
-        width: 300px;
-        padding: 10px;
-        font-size: 16px;
-        margin-right: 10px;
-    }
-
-    .search-bar button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #77AA42;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-
-.map-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-#map {
-    width: 70%;
-    height: 500px;
+    color: #424b5a !important;
 }
 
 .list {
-    width: 25%;
+    margin: 20px auto;
+    width: 60%;
     overflow-y: auto;
-    height: 500px;
     border: 1px solid #ccc;
     padding: 10px;
+    background-color: #f9f9f9;
 }
 
 .list-item {
     margin-bottom: 15px;
     color: #424b5a;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
 
 .center-name {
     margin: 0 0 5px 0;
     color: #77AA42;
     font-weight: bold;
-    padding: 10px
 }
 
 .center-address,
@@ -347,6 +328,11 @@ body {
         }
 
 
+      
+   
+
+
+
 /*--------------------------------EDUCATIONAL RESOURCES------------------------------------*/
 #edu-res {
     padding: 50px 0;
@@ -359,7 +345,7 @@ body {
 
 .issue-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
 }
@@ -393,7 +379,7 @@ body {
     flex-direction: column;
     padding: 0 40px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     transition: height 0.5s;
     color: #ffffff;
 }
@@ -721,4 +707,110 @@ form button {
     .btn-login:hover {
         background-color: #343a40;
     }
+
+    /* General styles for mobile phones and tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+    #header-text h1 {
+        font-size: 24px;
+        padding: 0;
+    }
+
+    .statement {
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    .motivation {
+        padding: 0;
+        margin: 10px 0;
+    }
+
+    #get-started {
+        margin: 10px auto;
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    #features {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .feature-item {
+        width: 100%;
+        height: auto;
+    }
+
+    .logo-text-inline {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .search-bar input {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .search-bar button {
+        width: 90%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #map {
+        width: 100%;
+        height: 300px;
+    }
+
+    .list {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #seeMoreBtn {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .issue {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .issue img {
+        height: auto;
+    }
+}
+
+
+
+
 

@@ -10,11 +10,11 @@ const populatePickups = () => {
         const pickupItem = document.createElement("div");
         pickupItem.classList.add("pickup-item");
         pickupItem.innerHTML = `
-            <p><strong>Date:</strong> ${pickup.date}</p>
-            <p><strong>Materials:</strong> ${pickup.materials}</p>
-            <p><strong>Location:</strong> ${pickup.location}</p>
-            <p><strong>Status:</strong> ${pickup.status}</p>
-        `;
+                    <p><strong>Date:</strong> ${pickup.date}</p>
+                    <p><strong>Materials:</strong> ${pickup.materials}</p>
+                    <p><strong>Location:</strong> ${pickup.location}</p>
+                    <p><strong>Status:</strong> ${pickup.status}</p>
+                `;
         pickupHistory.appendChild(pickupItem);
     });
 };

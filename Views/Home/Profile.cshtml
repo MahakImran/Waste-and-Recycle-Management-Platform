@@ -5,38 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
+    <link href="~/css/Profile.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="~/css/Profile.css">
 </head>
-
 <body>
     <div class="container">
-        <img src="~/images/white_logo.png" alt="Logo">
-        <h4 class="font-weight-bold py-3 mb-4">Account settings</h4>
+        <img src="white_logo.png" alt="Logo">
+        <h4 class="font-weight-bold py-3 mb-4">
+            Account settings
+        </h4>
         <div class="card">
             <div class="row no-gutters">
                 <div class="col-md-3">
                     <ul class="list-group">
-                        <a href="#account-general"class="list-group-item active" data-toggle="list">General</a>
-                        <a href="#account-change-password"class="list-group-item" data-toggle="list">Change Password</a>
-                        <a href="#logout" class="list-group-item"data-toggle="list">Log Out</a>
-                        <a href="#pickup-history"class="list-group-item" data-toggle="list">Pickup History</a>
+                        <a href="#account-general" class="list-group-item active" data-toggle="list">General</a>
+                        <a href="#account-change-password" class="list-group-item" data-toggle="list">Change Password</a>
+                        <a href="#logout" class="list-group-item" data-toggle="list">Log Out</a>
+                        <a href="#pickup-history" class="list-group-item" data-toggle="list">Pickup History</a>
                     </ul>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
-                            <div class="form-group">
-                                <label class="form-label">Username</label>
-                                <input type="text" class="form-control" value="Abc">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Contact No.</label>
-                                <input type="tel" class="form-control" value="+92">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">E-mail</label>
-                                <input type="text" class="form-control" value="abc@mail.com">
+                            <div class="tab-content">
+                                <div class="form-group">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control" value="Abc">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Contact No.</label>
+                                    <input type="tel" class="form-control" value="+92">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">E-mail</label>
+                                    <input type="text" class="form-control" value="abc@mail.com">
+                                </div>
                             </div>
                         </div>
 
@@ -57,7 +60,7 @@
 
                         <div class="tab-pane fade" id="logout">
                             <h3>Logout</h3>
-                            <button class="btn btn-primary logout-button"onclick="logout()">Logout</button>
+                            <button class="btn btn-primary logout-button" onclick="logout()">Logout</button>
                         </div>
 
                         <div class="tab-pane fade" id="pickup-history">
@@ -76,8 +79,8 @@
             <button type="button" class="btn btn-default">Cancel</button>
         </div>
     </div>
-
     <script src="~/js/Profile.js"></script>
 </body>
 
 </html>
+

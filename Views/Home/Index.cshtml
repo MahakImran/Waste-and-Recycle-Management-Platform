@@ -19,7 +19,6 @@
              <li><a href="#edu-res" target="_blank">Educational Resources</a></li>
              <li><a href="#Schedule-Pickup" target="_blank">Schedule Pickup</a></li>
              <li><a href="#user-reg" target="_blank">Register</a></li>
-             <li><a href="@Url.Action("Profile","Home")"target="_blank">Profile</a></li>
             </ul>
           </nav>
           <div id="header-text">
@@ -66,29 +65,19 @@
         </div>
     </div>
 <!-------------------RECYCLING CENTERS--------------------->
-<div id="rec-center">
-<div class="logo-text-inline">
-    <img src="~/images/white_logo.png" alt="Logo" class="logo">
-    <h1 class="page-title">Locate Recycling Centers <span class="near" style="color: #424b5a;">Near you!</span></h1>
-</div>
+        <div id="rec-center">
+            <div class="logo-text-inline">
+                <img src="~/images/white_logo.png" alt="Logo" class="logo">
+                <h1 class="page-title">Locate Recycling Centers <span class="near">Near you!</span></h1>
+            </div>
 
-<!-- Search Bar -->
-<div class="search-bar">
-    <input type="text" id="locationInput" placeholder="Enter city or zip code">
-    <button onclick="searchLocation()">Search</button>
-</div>
+            <!-- List of Recycling Centers -->
+            <div class="list" id="recyclingCentersList">
+                <!-- Dynamic content will go here -->
+            </div>
+        </div>
 
-<!-- Map and List Container -->
-<div class="map-container">
-    <!-- Google Map -->
-    <div id="map"></div>
-
-    <!-- List of Recycling Centers -->
-    <div class="list" id="recyclingCentersList">
-        <!-- Dynamic content will go here -->
-    </div>
-</div>
-</div>
+    
 <!--------------------------------EDUCATIONAL RESOURCES----------------------------->
 <div id="edu-res">
     <nav>
@@ -158,7 +147,9 @@
         <div class="container">
             <div class="row">
                 <div class="schedule-right">
-                    <form name="" class="btn2">
+                 @using (Html.BeginForm("SchedulePickup", "Home", FormMethod.Post))
+{
+                 @Html.AntiForgeryToken()
                         <p>Name:</p>
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <p>Address:</p>
@@ -166,22 +157,23 @@
                         <p>Email:</p>
                         <input type="email" name="Email" placeholder="Your Email" required>
                         <p>Contact no.:</p>
-                        <input type="tel" name="Phone" placeholder="Your Phone number" required>
+                        <input type="text" name="Phone" placeholder="Your Phone number" required>
                         <p>Preferred Pickup Date and Time:</p>
-                        <input type="datetime-local" name="Pickup-date" placeholder="Preferred Pickup Date and Time" required>
+                        <input type="datetime-local" name="Pickupdate" placeholder="Preferred Pickup Date and Time" required>
                         
                         <p>Types of waste</p>
                         <select id="waste_type" name="waste_type" required>
                             <option value="plastic">Plastic</option>
                             <option value="paper">Paper</option>
-                            <option value="metal">Paper</option>
+                            <option value="metal">Metal</option>
                             <option value="electronic">Electronic</option>
                             <option value="glass">Glass</option>
                         </select>
                         
                         <textarea name="Message" rows="6" placeholder="Instructions"></textarea>
+                        <p style="color:@(ViewBag.formoneMessage == "Form Submitted" ? "green" : "red")">@ViewBag.formoneMessage</p>
                         <button type="submit" id="seeMoreBtn">Submit</button>
-                    </form>
+                 }
                     <span id="msg"></span>
                 </div>
                 </div>
@@ -204,32 +196,38 @@
             <span class="now" style="color: #424b5a;">NOW!</span>
         </h1>
         <div class="form-container">
-            <form class="form-info">
+
+       @using (Html.BeginForm("Registration", "Home", FormMethod.Post, new { @class = "myform" }))
+{
+                 @Html.AntiForgeryToken()
                 <div class="form-row">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="Enter your name">
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
                 </div>
                 <div class="form-row">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+                    <input type="email" id="email" name="email"  placeholder="Enter your email">
                 </div>
                 <div class="form-row">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
                 </div>
                 <div class="form-row">
                     <label for="confirm-password">Confirm Password:</label>
-                    <input type="password" id="confirm-password" placeholder="Confirm your password">
+                    <input type="password" id="confirm-password" name="confirmpassword" placeholder="Confirm your password">
                 </div>
                 <div class="form-buttons">
+                     
                     <button type="submit" class="btn btn-signup">Sign Up</button>
-                    <button type="button" class="btn btn-clear" onclick="document.querySelector('.form-info').reset();">Clear</button>
+                                    <button type="button" class="btn btn-clear" onclick="document.querySelector('.myform').reset();">Clear</button>
+                                    
                 </div>
                 <div class="login-section">
                     <span class="login-text" style="color: #888;">Already have an account?</span>
-                    <button type="button" class="btn btn-login" onclick="window.location.href='login.html';">Login</button>
+                    <button type="button" class="btn btn-login" onclick="window.location.href='@Url.Action("Login", "Home")'" target="_blank">Login</button>
+                                    <p style="color:@(ViewBag.formtwoMessage == "Registration Successful!" ? "green" : "red")">@ViewBag.formtwoMessage</p>
                 </div>
-            </form>
+            }
         </div>
     </div>
 </div>
@@ -237,8 +235,6 @@
 </div>
 
 
-<!------------------------------------- Google Maps API ------------------------------------>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 <script src="~/js/site.js"></script>
 </body>
 </html>
