@@ -20,27 +20,29 @@
                 <span class="back">BACK!</span>
             </h1>
             <div class="form-container">
-                <form class="form-info" action="Log_in" method="post">
+                @using (Html.BeginForm("Log_in", "Home", FormMethod.Post, new { @class = "form-info" }))
+                {
                     @Html.AntiForgeryToken()
                     <div class="form-row">
                         <label for="email">Email: </label>
-                        <input type="email" id="email" placeholder="Enter your email id">
+                        <input type="email" id="email" name="email" placeholder="Enter your email id" />
                     </div>
                     <div class="form-row">
                         <label for="password">Password: </label>
-                        <input type="password" id="password" placeholder="Enter your password">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" />
                     </div>
 
                     <div class="form-buttons">
                         <button type="submit" class="btn btn-login">Log in</button>
-                        <p style="color:darkred">@ViewBag.Message</p>
+                        <p style="color:darkred">@ViewBag.form3Message</p>
                         <button type="button" class="btn btn-clear" onclick="document.querySelector('.form-info').reset();">Clear</button>
                     </div>
                     <div class="Signin-section">
                         <span class="signin-text">Don't have an account?</span>
                         <button type="button" class="btn btn-signin" onclick=" location.href='/Home/Index#user-reg'" target="_blank">Sign in</button>
                     </div>
-                </form>
+                }
+
             </div>
         </div>
     </div>

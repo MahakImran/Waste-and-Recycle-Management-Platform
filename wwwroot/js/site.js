@@ -43,7 +43,7 @@ const updatedRecyclingCenters = [
 // Function to display the recycling centers list
 function displayRecyclingCentersList(centers) {
     const listContainer = document.getElementById("recyclingCentersList");
-    listContainer.innerHTML = ""; // Clear any existing content
+    listContainer.innerHTML = ""; 
 
     centers.forEach((center) => {
         const listItem = document.createElement("div");
